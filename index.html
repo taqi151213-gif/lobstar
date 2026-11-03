@@ -1,971 +1,236 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobster Restaurant & Convention Hall | Barishal</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            400: '#FACC15',
-                            500: '#EAB308',
-                            600: '#CA8A04',
-                            700: '#A16207',
-                        },
-                        charcoal: {
-                            800: '#12161F',
-                            900: '#0A0D14',
-                            950: '#05070A',
-                        },
-                        lobster: {
-                            500: '#FF4D4D',
-                            600: '#E63939',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Lobstar Restaurant & Convention</title>
     <style>
-        .glass-panel {
-            background: rgba(18, 22, 31, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(234, 179, 8, 0.15);
+        :root {
+            --bg-dark: #0f141d;
+            --card-bg: #18202c;
+            --accent-gold: #d4af37;
+            --text-light: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --border-color: #27272a;
         }
-        .glass-card {
-            background: rgba(26, 31, 44, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .glass-card:hover {
-            border-color: rgba(234, 179, 8, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.15);
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
         }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF5C0 0%, #EAB308 50%, #CA8A04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Header / Nav */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background-color: rgba(15, 20, 29, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
         }
-        .gold-btn-gradient {
-            background: linear-gradient(135deg, #EAB308 0%, #CA8A04 100%);
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .gold-btn-gradient:hover {
-            background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%);
+
+        .nav-menu-btn {
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(rgba(15, 20, 29, 0.85), rgba(15, 20, 29, 0.95)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 0.75rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            max-width: 280px;
+            margin: 0.5rem auto 0;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Cards Grid */
+        .container {
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .info-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0d13;
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
     </style>
 </head>
-<body class="bg-charcoal-950 text-gray-200 font-sans antialiased selection:bg-gold-500 selection:text-charcoal-950">
+<body>
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-charcoal-900 via-gold-700/20 to-charcoal-900 text-xs py-2 px-4 border-b border-gold-500/20">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-            <div class="flex items-center gap-4 text-gray-300">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-gold-500"></i> DN Tower, Rupatali, Barishal 8207</span>
-                <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-clock text-gold-500"></i> Daily: 11:00 AM – 11:00 PM</span>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="tel:+8801711706079" class="hover:text-gold-400 font-medium transition-colors flex items-center gap-1">
-                    <i class="fa-solid fa-phone text-gold-500"></i> +880 1711-706079
-                </a>
-                <span class="text-gray-600">|</span>
-                <span class="text-gold-400 flex items-center gap-1"><i class="fa-solid fa-star text-gold-500"></i> 4.8 / 5.0 (Google Verified)</span>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <span>🦞</span> LOBSTAR
         </div>
-    </div>
-
-    <!-- MAIN NAVBAR -->
-    <header class="sticky top-0 z-50 glass-panel">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-lobster-600 to-charcoal-900 flex items-center justify-center border border-gold-500/40 shadow-lg shadow-lobster-600/20 group-hover:border-gold-400 transition-all">
-                        <i class="fa-solid fa-shrimp text-2xl text-gold-400 group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div>
-                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white block leading-none">LOBSTER</span>
-                        <span class="text-[10px] tracking-[0.25em] text-gold-400 uppercase font-medium">Restaurant & Convention</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Menu -->
-                <nav class="hidden lg:flex items-center gap-8 font-medium text-sm">
-                    <a href="#home" class="hover:text-gold-400 transition-colors">Home</a>
-                    <a href="#about" class="hover:text-gold-400 transition-colors">About Us</a>
-                    <a href="#menu" class="hover:text-gold-400 transition-colors">Special Menu</a>
-                    <a href="#convention" class="hover:text-gold-400 transition-colors">Convention Hall</a>
-                    <a href="#reviews" class="hover:text-gold-400 transition-colors">Reviews</a>
-                    <a href="#contact" class="hover:text-gold-400 transition-colors">Contact</a>
-                </nav>
-
-                <!-- Action Buttons -->
-                <div class="hidden sm:flex items-center gap-3">
-                    <button onclick="openModal('tableModal')" class="px-4 py-2.5 rounded-lg border border-gold-500/40 hover:bg-gold-500/10 text-gold-400 text-sm font-semibold transition-all">
-                        Book Table
-                    </button>
-                    <button onclick="openModal('hallModal')" class="px-5 py-2.5 rounded-lg gold-btn-gradient text-charcoal-950 text-sm font-bold shadow-lg shadow-gold-500/10 hover:shadow-gold-500/25 transition-all">
-                        Reserve Hall
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-charcoal-800 focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-800 bg-charcoal-900 px-4 pt-3 pb-6 space-y-3">
-            <a href="#home" class="block py-2 text-gray-200 hover:text-gold-400 font-medium">Home</a>
-            <a href="#about" class="block py-2 text-gray-200 hover:text-gold-400 font-medium">About Us</a>
-            <a href="#menu" class="block py-2 text-gray-200 hover:text-gold-400 font-medium">Special Menu</a>
-            <a href="#convention" class="block py-2 text-gray-200 hover:text-gold-400 font-medium">Convention Hall</a>
-            <a href="#reviews" class="block py-2 text-gray-200 hover:text-gold-400 font-medium">Reviews</a>
-            <a href="#contact" class="block py-2 text-gray-200 hover:text-gold-400 font-medium">Contact</a>
-            <div class="pt-4 flex flex-col gap-2">
-                <button onclick="openModal('tableModal')" class="w-full py-3 rounded-lg border border-gold-500/40 text-gold-400 font-semibold">Book Table</button>
-                <button onclick="openModal('hallModal')" class="w-full py-3 rounded-lg gold-btn-gradient text-charcoal-950 font-bold">Reserve Hall</button>
-            </div>
-        </div>
+        <button class="nav-menu-btn" aria-label="Toggle Menu">☰</button>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-[90vh] flex items-center justify-center pt-8 pb-16 overflow-hidden">
-        <!-- Background Overlay & Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80" alt="Lobster Restaurant Ambience" class="w-full h-full object-cover opacity-25 scale-105 transform hover:scale-100 transition-transform duration-1000">
-            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/80 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-charcoal-950 via-transparent to-charcoal-950"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-gold-400 text-xs sm:text-sm font-semibold mb-6 border border-gold-500/30 animate-pulse">
-                <i class="fa-solid fa-award text-gold-500"></i> Barisals Premier Seafood & Banquet Destination
-            </div>
-            
-            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
-                Taste The Grandeur of <br>
-                <span class="gold-gradient-text">Exquisite Seafood & Events</span>
-            </h1>
-
-            <p class="max-w-3xl mx-auto text-gray-300 text-base sm:text-xl font-light mb-10 leading-relaxed">
-                Experience authentic grilled lobster, premium ocean prawns, and royal banquets at Barishal's most prestigious culinary landmark. Located right at Rupatali's prime location.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-                <button onclick="openModal('hallModal')" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-btn-gradient text-charcoal-950 font-bold text-base shadow-xl shadow-gold-500/20 hover:scale-105 transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-champagne-glasses"></i> Book Convention Hall
-                </button>
-                <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white hover:text-gold-400 font-semibold text-base border border-gray-700 hover:border-gold-500/40 transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-utensils text-gold-500"></i> Explore Menu
-                </a>
-            </div>
-
-            <!-- Quick Metrics -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400 mb-1">4.8 ★</div>
-                    <div class="text-xs text-gray-400 font-medium">Google Reviews</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400 mb-1">500+</div>
-                    <div class="text-xs text-gray-400 font-medium">Hall Guest Capacity</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400 mb-1">100%</div>
-                    <div class="text-xs text-gray-400 font-medium">Fresh Live Seafood</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-2xl sm:text-3xl font-serif font-bold text-gold-400 mb-1">DN Tower</div>
-                    <div class="text-xs text-gray-400 font-medium">Rupatali, Barishal</div>
-                </div>
-            </div>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">OPEN NOW • 11:00 AM - 11:00 PM</div>
+        <h1>Welcome to Lobstar Restaurant & Convention</h1>
+        <p>Experience exquisite seafood dining, premium convention halls, and lightning-fast home delivery right in Barisal.</p>
+        
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="https://wa.me/8801711700079" class="btn-secondary">Order via WhatsApp</a>
     </section>
 
-    <!-- LIVE LOCATION & CONTACT HIGHLIGHT -->
-    <section id="contact-bar" class="relative z-20 -mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass-panel p-6 sm:p-8 rounded-2xl shadow-2xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-800">
-                <!-- Address -->
-                <div class="flex items-start gap-4 pb-4 md:pb-0">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center flex-shrink-0 text-gold-400">
-                        <i class="fa-solid fa-map-location-dot text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-1">Our Location</h4>
-                        <p class="text-white font-medium text-sm leading-snug">DN Tower, Rupatali, Barishal 8207</p>
-                        <a href="https://maps.google.com/?q=DN+Tower+Rupatali+Barishal" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs text-gold-400 hover:underline mt-2">
-                            Get Directions <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Contact Phone -->
-                <div class="flex items-start gap-4 pt-4 md:pt-0 md:pl-6">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center flex-shrink-0 text-gold-400">
-                        <i class="fa-solid fa-phone-volume text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-1">Reservations & Info</h4>
-                        <p class="text-white font-medium text-sm">+880 1711-706079</p>
-                        <span class="text-xs text-gray-400 block mt-0.5">Quick Response via Call / WhatsApp</span>
-                        <a href="tel:+8801711706079" class="inline-flex items-center gap-1 text-xs text-gold-400 hover:underline mt-1">
-                            Call Now <i class="fa-solid fa-phone text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hours -->
-                <div class="flex items-start gap-4 pt-4 md:pt-0 md:pl-6">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center flex-shrink-0 text-gold-400">
-                        <i class="fa-solid fa-clock text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-1">Opening Hours</h4>
-                        <p class="text-white font-medium text-sm">Everyday: 11:00 AM – 11:00 PM</p>
-                        <span class="text-xs text-emerald-400 font-medium inline-flex items-center gap-1 mt-1">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Open Today
-                        </span>
-                    </div>
-                </div>
+    <!-- Main Content Info Cards -->
+    <main class="container">
+        
+        <!-- Location -->
+        <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div class="info-content">
+                <h3>Location & Floor</h3>
+                <p>3rd Floor, Lobstar Tower, Opposite University of Barisal Main Gate, Barisal-Bhola Highway.</p>
             </div>
         </div>
-    </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="relative">
-                    <div class="relative rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Restaurant Dining Interior" class="w-full h-[480px] object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-transparent to-transparent"></div>
-                    </div>
-                    <!-- Overlay Card -->
-                    <div class="absolute -bottom-6 -right-6 hidden sm:block glass-panel p-6 rounded-2xl max-w-xs shadow-2xl border border-gold-500/30">
-                        <div class="flex items-center gap-3 mb-2">
-                            <i class="fa-solid fa-utensils text-2xl text-gold-400"></i>
-                            <h4 class="font-serif font-bold text-white text-lg">Culinary Masterpiece</h4>
-                        </div>
-                        <p class="text-xs text-gray-300 leading-relaxed">Top-rated seafood destination featuring grand hall arrangements for weddings & corporate events.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-400 block mb-3">Welcome to Lobster</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
-                        Barishal's Premier Luxury Dining & Event Experience
-                    </h2>
-                    <p class="text-gray-300 text-base leading-relaxed mb-6">
-                        Located at DN Tower in Rupatali, **Lobster Restaurant & Convention Hall** brings a unique fusion of premium ocean delicacies, traditional Bengali banquet feasts, and modern international cuisine to Barishal.
-                    </p>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        Whether you are looking for an intimate dinner with signature grilled lobsters and garlic prawns, or planning a grand wedding reception for up to 500 guests, our venue offers state-of-the-art facilities, elegant decor, and unparalleled hospitality.
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check-circle text-gold-500 text-lg"></i>
-                            <span class="text-sm text-gray-200 font-medium">Live Lobster & Seafood</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check-circle text-gold-500 text-lg"></i>
-                            <span class="text-sm text-gray-200 font-medium">Air Conditioned Hall</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check-circle text-gold-500 text-lg"></i>
-                            <span class="text-sm text-gray-200 font-medium">Spacious Parking Facilities</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check-circle text-gold-500 text-lg"></i>
-                            <span class="text-sm text-gray-200 font-medium">Custom Event Catering</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- Hours -->
+        <div class="info-card">
+            <div class="info-icon">🕒</div>
+            <div class="info-content">
+                <h3>Opening Hours & Delivery</h3>
+                <p>Daily: 11:00 AM – 11:00 PM<br>Home delivery available instantly!</p>
             </div>
         </div>
-    </section>
 
-    <!-- SPECIAL MENU SHOWCASE -->
-    <section id="menu" class="py-24 bg-charcoal-900/50 border-y border-gray-800/50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-400 block mb-3">Our Culinary Delicacies</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Chef's Signature Menu</h2>
-                <p class="text-gray-400 text-base">Handcrafted dishes made from fresh local and imported catches, prepared with authentic spices and fine culinary techniques.</p>
-            </div>
-
-            <!-- Menu Category Filter Tabs -->
-            <div class="flex justify-center gap-2 sm:gap-4 mb-12 flex-wrap">
-                <button onclick="filterMenu('all')" class="menu-tab active px-5 py-2.5 rounded-full text-sm font-semibold border border-gold-500 text-charcoal-950 gold-btn-gradient transition-all">All Specials</button>
-                <button onclick="filterMenu('seafood')" class="menu-tab px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-800 hover:border-gold-500/50 text-gray-300 hover:text-white transition-all">Seafood Specialties</button>
-                <button onclick="filterMenu('platters')" class="menu-tab px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-800 hover:border-gold-500/50 text-gray-300 hover:text-white transition-all">Banquet Platters</button>
-                <button onclick="filterMenu('beverages')" class="menu-tab px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-800 hover:border-gold-500/50 text-gray-300 hover:text-white transition-all">Beverages & Mocktails</button>
-            </div>
-
-            <!-- Menu Grid -->
-            <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Item 1 -->
-                <div class="menu-item seafood glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80" alt="Grilled Lobster Special" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-4 left-4 bg-lobster-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Chef Special</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Royal Butter Garlic Lobster</h3>
-                            <span class="text-gold-400 font-bold text-lg font-serif">৳1,850</span>
-                        </div>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Whole live grilled lobster tossed in clarified garlic herb butter, served with sautéed vegetables & fragrant rice.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <span class="text-[11px] text-gray-500 flex items-center gap-1"><i class="fa-solid fa-fire text-lobster-500"></i> Fresh Catch</span>
-                            <button onclick="openModal('tableModal')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Order For Table <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="menu-item seafood glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80" alt="Jumbo Prawn Platter" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-4 left-4 bg-gold-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Popular</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Jumbo Ocean Prawns Platter</h3>
-                            <span class="text-gold-400 font-bold text-lg font-serif">৳1,200</span>
-                        </div>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Giant tiger prawns flame-grilled with signature peri-peri spice glaze and lemon wedges.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <span class="text-[11px] text-gray-500 flex items-center gap-1"><i class="fa-solid fa-pepper-hot text-lobster-500"></i> Spicy Glaze</span>
-                            <button onclick="openModal('tableModal')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Order For Table <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="menu-item platters glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80" alt="Banquet Kacchi Biryani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Convention Special</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Grand Shahi Mutton Kacchi</h3>
-                            <span class="text-gold-400 font-bold text-lg font-serif">৳650 / person</span>
-                        </div>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Traditional slow-cooked fragrant basmati rice layered with tender mutton chunks, potatoes, and aromatic ghee.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <span class="text-[11px] text-gray-500 flex items-center gap-1"><i class="fa-solid fa-drumstick-bite text-gold-500"></i> Wedding Favorite</span>
-                            <button onclick="openModal('hallModal')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Banquet Booking <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="menu-item seafood glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Crab Masala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Crispy Soft-Shell Crab</h3>
-                            <span class="text-gold-400 font-bold text-lg font-serif">৳950</span>
-                        </div>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Deep fried seasoned ocean crabs served with house chilli garlic dip and fresh garden salad.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <span class="text-[11px] text-gray-500">3 Pcs Platter</span>
-                            <button onclick="openModal('tableModal')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Order For Table <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="menu-item beverages glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80" alt="Blue Ocean Mocktail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Barishal Blue Ocean Cooler</h3>
-                            <span class="text-gold-400 font-bold text-lg font-serif">৳280</span>
-                        </div>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Refreshing citrus curaçao splash topped with fresh mint sprigs, lime, and crushed ice.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <span class="text-[11px] text-gray-500">Signature Drink</span>
-                            <button onclick="openModal('tableModal')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Order For Table <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="menu-item platters glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Seafood Banquet Feast" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Royal Seafood Banquet Feast</h3>
-                            <span class="text-gold-400 font-bold text-lg font-serif">৳3,450 (4 Persons)</span>
-                        </div>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Combined feast featuring grilled lobster, jumbo prawns, fried squid rings, fish tikka, fried rice, and beverages.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-800">
-                            <span class="text-[11px] text-gray-500">Family Combo</span>
-                            <button onclick="openModal('tableModal')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">Order For Table <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                        </div>
-                    </div>
-                </div>
+        <!-- Hotline -->
+        <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+                <h3>Hotline & WhatsApp</h3>
+                <p>+880 1711-700079<br>Tap to chat & order instantly</p>
             </div>
         </div>
-    </section>
 
-    <!-- CONVENTION HALL SECTION -->
-    <section id="convention" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel p-8 sm:p-12 rounded-3xl relative">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-400 block mb-3">Grand Events & Weddings</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-                            Host Memorable Occasions At Our Hall
-                        </h2>
-                        <p class="text-gray-300 text-base leading-relaxed mb-8">
-                            Our fully air-conditioned convention hall at DN Tower is equipped with modern acoustics, stage lightings, and flexible seating arrangements to host weddings, corporate AGMs, birthday parties, and social receptions.
-                        </p>
+    </main>
 
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 flex-shrink-0">
-                                    <i class="fa-solid fa-users text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Capacity Up To 500 Guests</h4>
-                                    <p class="text-gray-400 text-xs">Flexible seating & dining arrangements</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 flex-shrink-0">
-                                    <i class="fa-solid fa-snowflake text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Centralized Climate Control</h4>
-                                    <p class="text-gray-400 text-xs">100% AC comfort year-round</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 flex-shrink-0">
-                                    <i class="fa-solid fa-bowl-food text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">In-House Culinary Catering</h4>
-                                    <p class="text-gray-400 text-xs">Customizable Bengali & International menus</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button onclick="openModal('hallModal')" class="px-8 py-4 rounded-xl gold-btn-gradient text-charcoal-950 font-bold text-base shadow-xl shadow-gold-500/20 hover:scale-105 transition-all">
-                            Inquire For Event Date
-                        </button>
-                    </div>
-
-                    <div class="relative">
-                        <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=80" alt="Convention Hall Decor" class="w-full h-[440px] object-cover">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REVIEWS & SUBMISSION SECTION -->
-    <section id="reviews" class="py-24 bg-charcoal-900/60 border-t border-gray-800 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-400 block mb-3">Google Reviews</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-2">What Guests Say</h2>
-                    <p class="text-gray-400 text-sm">Rated 4.8 / 5.0 Stars based on verified customer experiences.</p>
-                </div>
-                <div>
-                    <button onclick="openReviewModal()" class="px-6 py-3 rounded-xl border border-gold-500/40 text-gold-400 font-semibold hover:bg-gold-500/10 transition-all flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-pen-to-square"></i> Write A Review
-                    </button>
-                </div>
-            </div>
-
-            <!-- Reviews Grid Container -->
-            <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Static Review 1 -->
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center font-bold text-gold-400 text-sm">
-                                    RA
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Rakib Ahmed</h4>
-                                    <span class="text-[11px] text-gray-500">Local Guide • Barishal</span>
-                                </div>
-                            </div>
-                            <div class="flex text-gold-400 text-xs">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-xs leading-relaxed italic">
-                            "The grilled lobster here is unmatched in Barishal! Great interior and very cozy environment at Rupatali DN Tower. Staff behavior is extremely polite."
-                        </p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500">
-                        <span><i class="fa-brands fa-google text-gold-400"></i> Verified Review</span>
-                        <span>2 weeks ago</span>
-                    </div>
-                </div>
-
-                <!-- Static Review 2 -->
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-lobster-600/20 border border-lobster-500/40 flex items-center justify-center font-bold text-lobster-500 text-sm">
-                                    TC
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Tanjila Chowdhury</h4>
-                                    <span class="text-[11px] text-gray-500">Wedding Reception Guest</span>
-                                </div>
-                            </div>
-                            <div class="flex text-gold-400 text-xs">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-xs leading-relaxed italic">
-                            "Attended a cousin's wedding ceremony in their convention hall. AC working was top notch, lighting decoration was mesmerizing and the Kacchi biryani served was delicious!"
-                        </p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500">
-                        <span><i class="fa-brands fa-google text-gold-400"></i> Verified Review</span>
-                        <span>1 month ago</span>
-                    </div>
-                </div>
-
-                <!-- Static Review 3 -->
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center font-bold text-emerald-400 text-sm">
-                                    MH
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Mahmudul Hasan</h4>
-                                    <span class="text-[11px] text-gray-500">Family Dinner</span>
-                                </div>
-                            </div>
-                            <div class="flex text-gold-400 text-xs">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-xs leading-relaxed italic">
-                            "Jumbo prawns and crab masala were wonderful! Reasonable prices considering the high quality seafood served. Highly recommended for family gatherings."
-                        </p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500">
-                        <span><i class="fa-brands fa-google text-gold-400"></i> Verified Review</span>
-                        <span>3 weeks ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact" class="bg-charcoal-950 border-t border-gray-800 text-gray-400 pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                <!-- Column 1: Brand Info -->
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-lobster-600 flex items-center justify-center text-white">
-                            <i class="fa-solid fa-shrimp text-xl"></i>
-                        </div>
-                        <span class="font-serif text-xl font-bold text-white">LOBSTER</span>
-                    </div>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                        The ultimate dining & event center in Barishal. Serving fresh ocean lobsters, spicy prawns, and hosting royal banquet receptions at DN Tower.
-                    </p>
-                    <div class="flex gap-3">
-                        <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-lg bg-charcoal-900 border border-gray-800 flex items-center justify-center text-gray-300 hover:text-gold-400 hover:border-gold-500/40 transition-colors">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-charcoal-900 border border-gray-800 flex items-center justify-center text-gray-300 hover:text-gold-400 hover:border-gold-500/40 transition-colors">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="tel:+8801711706079" class="w-9 h-9 rounded-lg bg-charcoal-900 border border-gray-800 flex items-center justify-center text-gray-300 hover:text-gold-400 hover:border-gold-500/40 transition-colors">
-                            <i class="fa-solid fa-phone"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Quick Links -->
-                <div>
-                    <h4 class="text-white font-serif font-bold text-base mb-4">Quick Navigation</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#home" class="hover:text-gold-400 transition-colors">Home Page</a></li>
-                        <li><a href="#about" class="hover:text-gold-400 transition-colors">About Our Restaurant</a></li>
-                        <li><a href="#menu" class="hover:text-gold-400 transition-colors">Seafood Menu & Prices</a></li>
-                        <li><a href="#convention" class="hover:text-gold-400 transition-colors">Convention Hall Booking</a></li>
-                        <li><a href="#reviews" class="hover:text-gold-400 transition-colors">Customer Google Reviews</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Contact Info -->
-                <div>
-                    <h4 class="text-white font-serif font-bold text-base mb-4">Direct Contact</h4>
-                    <ul class="space-y-3 text-xs">
-                        <li class="flex items-start gap-2">
-                            <i class="fa-solid fa-location-dot text-gold-400 mt-0.5"></i>
-                            <span>DN Tower, Rupatali, Barishal 8207, Bangladesh</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-phone text-gold-400"></i>
-                            <a href="tel:+8801711706079" class="hover:underline">+880 1711-706079</a>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-clock text-gold-400"></i>
-                            <span>11:00 AM – 11:00 PM (Daily)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Newsletter & Inquiry -->
-                <div>
-                    <h4 class="text-white font-serif font-bold text-base mb-4">Instant Inquiry</h4>
-                    <p class="text-xs text-gray-400 mb-3">Leave your phone number and we will call you back immediately for hall availability.</p>
-                    <form onsubmit="handleQuickInquiry(event)" class="flex flex-col gap-2">
-                        <input type="tel" id="inquiryPhone" placeholder="Enter phone number" required class="px-3 py-2.5 rounded-lg bg-charcoal-900 border border-gray-800 text-white text-xs focus:outline-none focus:border-gold-500">
-                        <button type="submit" class="py-2.5 rounded-lg gold-btn-gradient text-charcoal-950 font-bold text-xs shadow-md">Request Callback</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-gray-900 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p>&copy; 2026 Lobster Restaurant & Convention Hall, Barishal. All rights reserved.</p>
-                <p class="text-[11px]">Located at DN Tower, Rupatali, Barishal 8207</p>
-            </div>
-        </div>
+    <!-- Cleaned Footer (Without FB / IG / WA / YT buttons) -->
+    <footer>
+        <p class="footer-copyright">
+            © 2026 Lobstar Restaurant & Convention, 3rd Floor, Lobstar Tower, Opp. University of Barisal Main Gate. All rights reserved.
+        </p>
     </footer>
 
-    <!-- MODAL: TABLE RESERVATION -->
-    <div id="tableModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-charcoal-950/80 backdrop-blur-md">
-        <div class="glass-panel max-w-md w-full p-6 sm:p-8 rounded-2xl shadow-2xl relative border border-gold-500/30">
-            <button onclick="closeModal('tableModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <div class="flex items-center gap-2 mb-2 text-gold-400 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-utensils"></i> Dining Reservation
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-white mb-4">Book A Dining Table</h3>
-
-            <form onsubmit="handleFormSubmit(event, 'Table Reservation Received! We will confirm your table shortly.')" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-medium text-gray-300 mb-1">Your Name</label>
-                    <input type="text" required placeholder="Full Name" class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
-                    <input type="tel" required placeholder="+880 17XXXXXXXX" class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1">Date</label>
-                        <input type="date" required class="w-full px-3 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1">Guests</label>
-                        <select required class="w-full px-3 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                            <option value="2">2 Persons</option>
-                            <option value="4">4 Persons</option>
-                            <option value="6">6 Persons</option>
-                            <option value="8+">8+ Persons</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="w-full py-3.5 rounded-xl gold-btn-gradient text-charcoal-950 font-bold text-sm shadow-lg mt-2">
-                    Confirm Table Booking
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- MODAL: CONVENTION HALL RESERVATION -->
-    <div id="hallModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-charcoal-950/80 backdrop-blur-md">
-        <div class="glass-panel max-w-lg w-full p-6 sm:p-8 rounded-2xl shadow-2xl relative border border-gold-500/30">
-            <button onclick="closeModal('hallModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <div class="flex items-center gap-2 mb-2 text-gold-400 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-champagne-glasses"></i> Convention Hall Inquiry
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-white mb-2">Reserve Event Venue</h3>
-            <p class="text-xs text-gray-400 mb-6">DN Tower Hall, Rupatali. Accommodates up to 500 guests.</p>
-
-            <form onsubmit="handleFormSubmit(event, 'Convention Hall Inquiry Received! Our manager will call you back within 1 hour.')" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1">Organizer Name</label>
-                        <input type="text" required placeholder="Full Name" class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
-                        <input type="tel" required placeholder="+880 17XXXXXXXX" class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1">Event Type</label>
-                        <select required class="w-full px-3 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                            <option>Wedding Reception</option>
-                            <option>Holud Ceremony</option>
-                            <option>Corporate Seminar</option>
-                            <option>Birthday / Anniversary</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1">Expected Guests</label>
-                        <input type="number" required placeholder="e.g. 300" class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-300 mb-1">Event Date</label>
-                    <input type="date" required class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                </div>
-
-                <button type="submit" class="w-full py-3.5 rounded-xl gold-btn-gradient text-charcoal-950 font-bold text-sm shadow-lg mt-2">
-                    Submit Hall Inquiry
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- MODAL: WRITE A REVIEW -->
-    <div id="reviewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-charcoal-950/80 backdrop-blur-md">
-        <div class="glass-panel max-w-md w-full p-6 sm:p-8 rounded-2xl shadow-2xl relative border border-gold-500/30">
-            <button onclick="closeModal('reviewModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <div class="flex items-center gap-2 mb-2 text-gold-400 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-star"></i> Customer Feedback
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-white mb-4">Leave Your Review</h3>
-
-            <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-medium text-gray-300 mb-1">Your Name</label>
-                    <input type="text" id="revName" required placeholder="e.g. Samin Yeasar" class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-300 mb-1">Select Star Rating</label>
-                    <div class="flex gap-2 text-2xl text-gray-600" id="starRatingSelect">
-                        <i class="fa-solid fa-star cursor-pointer hover:text-gold-400 transition-colors" onclick="setRating(1)"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-gold-400 transition-colors" onclick="setRating(2)"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-gold-400 transition-colors" onclick="setRating(3)"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-gold-400 transition-colors" onclick="setRating(4)"></i>
-                        <i class="fa-solid fa-star cursor-pointer hover:text-gold-400 transition-colors" onclick="setRating(5)"></i>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-300 mb-1">Your Review Comment</label>
-                    <textarea id="revComment" rows="3" required placeholder="Tell us about the seafood food quality, hall ambience, or staff service..." class="w-full px-4 py-2.5 rounded-xl bg-charcoal-900 border border-gray-700 text-white text-xs focus:outline-none focus:border-gold-500"></textarea>
-                </div>
-
-                <button type="submit" class="w-full py-3.5 rounded-xl gold-btn-gradient text-charcoal-950 font-bold text-sm shadow-lg mt-2">
-                    Publish Review
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- TOAST NOTIFICATION CONTAINER -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden max-w-sm px-6 py-4 rounded-xl glass-panel border border-gold-500/50 shadow-2xl flex items-center gap-3">
-        <i class="fa-solid fa-circle-check text-gold-400 text-xl"></i>
-        <span id="toastMsg" class="text-xs text-white font-medium">Notification message</span>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // Mobile Navigation Toggle
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Modal Handlers
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        // Generic Form Submit Toast Trigger
-        function handleFormSubmit(e, message) {
-            e.preventDefault();
-            e.target.reset();
-            closeModal('tableModal');
-            closeModal('hallModal');
-            showToast(message);
-        }
-
-        function handleQuickInquiry(e) {
-            e.preventDefault();
-            const phone = document.getElementById('inquiryPhone').value;
-            if(phone) {
-                showToast(`Callback requested for ${phone}!`);
-                e.target.reset();
-            }
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMsg').innerText = msg;
-            toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 4000);
-        }
-
-        // Menu Filter Tabs
-        function filterMenu(category) {
-            const tabs = document.querySelectorAll('.menu-tab');
-            tabs.forEach(t => {
-                t.classList.remove('gold-btn-gradient', 'text-charcoal-950', 'border-gold-500');
-                t.classList.add('text-gray-300', 'border-gray-800');
-            });
-            event.target.classList.add('gold-btn-gradient', 'text-charcoal-950', 'border-gold-500');
-
-            const items = document.querySelectorAll('.menu-item');
-            items.forEach(item => {
-                if(category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Dynamic Interactive Review System
-        let currentRating = 5;
-        function openReviewModal() {
-            setRating(5);
-            openModal('reviewModal');
-        }
-
-        function setRating(val) {
-            currentRating = val;
-            const stars = document.getElementById('starRatingSelect').children;
-            for(let i=0; i<5; i++) {
-                if(i < val) {
-                    stars[i].classList.add('text-gold-400');
-                    stars[i].classList.remove('text-gray-600');
-                } else {
-                    stars[i].classList.remove('text-gold-400');
-                    stars[i].classList.add('text-gray-600');
-                }
-            }
-        }
-
-        function handleReviewSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('revName').value;
-            const comment = document.getElementById('revComment').value;
-
-            // Generate Initials
-            const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
-
-            // Construct Star HTML
-            let starHtml = '';
-            for(let i=0; i<5; i++) {
-                if(i < currentRating) {
-                    starHtml += '<i class="fa-solid fa-star"></i>';
-                } else {
-                    starHtml += '<i class="fa-regular fa-star"></i>';
-                }
-            }
-
-            // Create Review Card DOM Element
-            const newCard = document.createElement('div');
-            newCard.className = 'glass-card p-6 rounded-2xl flex flex-col justify-between animate-fade-in border border-gold-500/30';
-            newCard.innerHTML = `
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center font-bold text-gold-400 text-sm">
-                                ${initials}
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm">${name}</h4>
-                                <span class="text-[11px] text-gray-500">Verified Visitor</span>
-                            </div>
-                        </div>
-                        <div class="flex text-gold-400 text-xs">${starHtml}</div>
-                    </div>
-                    <p class="text-gray-300 text-xs leading-relaxed italic">"${comment}"</p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-gray-800/60 flex items-center justify-between text-[11px] text-gray-500">
-                    <span><i class="fa-solid fa-circle-check text-emerald-400"></i> Published Just Now</span>
-                    <span>Today</span>
-                </div>
-            `;
-
-            // Insert at the top of the review grid
-            const grid = document.getElementById('reviewsGrid');
-            grid.insertBefore(newCard, grid.firstChild);
-
-            e.target.reset();
-            closeModal('reviewModal');
-            showToast('Thank you! Your review has been added live to the page.');
-        }
-    </script>
 </body>
 </html>
